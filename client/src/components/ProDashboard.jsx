@@ -103,7 +103,7 @@ export default function ProDashboard() {
               Live YouTube Audio Streams
             </h2>
           </div>
-          <span className="proStationCount">6 Stations Available</span>
+          <span className="proStationCount">{proStations.length} Stations Available</span>
         </div>
 
         <div className="proStationGrid">

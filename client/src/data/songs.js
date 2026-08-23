@@ -72,6 +72,18 @@ export const DEFAULT_SONGS = [
     isSpecial: true,
     tag: "RELAX"
   },
+  {
+    id: 17,
+    title: "NCS Phonk & Hard Bass",
+    artist: "NCS Phonk",
+    cover: "https://img.youtube.com/vi/rNXmANj72ps/hqdefault.jpg",
+    file: "",
+    ytVideoId: "rNXmANj72ps",
+    genre: "Phonk & Bass",
+    duration: "LIVE",
+    isSpecial: true,
+    tag: "DRIFT"
+  },
 
   // Core Track Collection
   {

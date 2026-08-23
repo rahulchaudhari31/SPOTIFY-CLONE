@@ -26,6 +26,7 @@ const songs = [
   { id: 14, title: "NCS Cyber Synth & Energy", artist: "NCS Synth", cover: "https://img.youtube.com/vi/Y8ETNh_IQjs/hqdefault.jpg", file: "", ytVideoId: "Y8ETNh_IQjs", genre: "Synthwave", isSpecial: true, tag: "CYBER" },
   { id: 15, title: "NCS Electro & Future House", artist: "NCS Club", cover: "https://img.youtube.com/vi/Z4B4mVV0NzM/hqdefault.jpg", file: "", ytVideoId: "Z4B4mVV0NzM", genre: "Future House", isSpecial: true, tag: "CLUB" },
   { id: 16, title: "NCS Lo-Fi & Ambient Beats", artist: "NCS Lounge", cover: "https://img.youtube.com/vi/7Pw5qk4wJAw/hqdefault.jpg", file: "", ytVideoId: "7Pw5qk4wJAw", genre: "Lo-Fi Chill", isSpecial: true, tag: "RELAX" },
+  { id: 17, title: "NCS Phonk & Hard Bass", artist: "NCS Phonk", cover: "https://img.youtube.com/vi/rNXmANj72ps/hqdefault.jpg", file: "", ytVideoId: "rNXmANj72ps", genre: "Phonk & Bass", isSpecial: true, tag: "DRIFT" },
 ];
 
 app.get('/api/songs', (req, res) => {
