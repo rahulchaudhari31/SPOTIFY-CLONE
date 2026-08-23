@@ -1654,12 +1654,12 @@ html {
 
 .proDashboardWrapper {
   width: 100%;
-  max-width: 1380px;
+  max-width: 1560px;
   margin: 0 auto;
-  padding: 12px 20px 40px;
+  padding: 20px 32px 160px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
 }
 
 /* ---- PRO NAVBAR ENHANCEMENTS ---- */
@@ -1675,8 +1675,8 @@ html {
   align-items: center;
   list-style-type: none;
   height: 68px;
-  padding: 0 24px;
-  max-width: 1420px;
+  padding: 0 32px;
+  max-width: 1560px;
   margin: 0 auto;
 }
 
@@ -2203,8 +2203,8 @@ html {
 /* ---- MAIN 2-COLUMN LAYOUT ---- */
 .proMainTwoCol {
   display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 24px;
+  grid-template-columns: 1fr 380px;
+  gap: 28px;
   align-items: start;
 }
 
