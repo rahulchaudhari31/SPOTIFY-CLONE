@@ -33,7 +33,11 @@ export function PlayerProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [playbackSource, setPlaybackSource] = useState('audio'); // 'audio' | 'youtube'
 
-  const audioRef = useRef(new Audio());
+  const audioRef = useRef(() => {
+    const audio = new Audio();
+    audio.preload = 'auto';
+    return audio;
+  })();
   const currentIndexRef = useRef(0);
   const songsRef = useRef(DEFAULT_SONGS);
   const repeatModeRef = useRef('off');
@@ -48,6 +52,14 @@ export function PlayerProvider({ children }) {
 
   volumeRef.current = volume;
   isMutedRef.current = isMuted;
+
+  // Preload first song for instant playback
+  useEffect(() => {
+    if (songs.length > 0 && songs[0].file) {
+      audioRef.current.src = songs[0].file;
+      audioRef.current.load();
+    }
+  }, [songs]);
 
   // Initialize Web Audio API for visualizer
   const ensureAudioGraph = useCallback(() => {
