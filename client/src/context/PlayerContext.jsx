@@ -6,6 +6,7 @@ import {
    saveRecentlyPlayed,
    MAX_RECENT,
  } from '../lib/storage';
+import { DEFAULT_SONGS } from '../data/songs';
 
 const PlayerContext = createContext(null);
 
@@ -17,7 +18,7 @@ export function formatTime(seconds) {
 }
 
 export function PlayerProvider({ children }) {
-  const [songs, setSongs] = useState([]);
+  const [songs, setSongs] = useState(DEFAULT_SONGS);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -29,12 +30,12 @@ export function PlayerProvider({ children }) {
   const [songDurations, setSongDurations] = useState({});
   const [favoriteIds, setFavoriteIds] = useState(() => loadFavorites());
   const [recentlyPlayed, setRecentlyPlayed] = useState(() => loadRecentlyPlayed());
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [playbackSource, setPlaybackSource] = useState('audio'); // 'audio' | 'youtube'
 
   const audioRef = useRef(new Audio());
   const currentIndexRef = useRef(0);
-  const songsRef = useRef([]);
+  const songsRef = useRef(DEFAULT_SONGS);
   const repeatModeRef = useRef('off');
   const isShuffledRef = useRef(false);
   const audioCtxRef = useRef(null);
@@ -130,16 +131,18 @@ export function PlayerProvider({ children }) {
     };
   }, []);
 
-  // Fetch songs list from server
+  // Fetch songs list from server (optional backend enhancement)
   useEffect(() => {
     fetch('/api/songs')
       .then((res) => res.json())
       .then((data) => {
-        setSongs(data);
-        songsRef.current = data;
+        if (Array.isArray(data) && data.length > 0) {
+          setSongs(data);
+          songsRef.current = data;
+        }
       })
-      .catch((err) => {
-        console.error('Failed to fetch songs:', err);
+      .catch(() => {
+        // Standalone mode / Vercel fallback - already initialized with DEFAULT_SONGS
       })
       .finally(() => setLoading(false));
   }, []);
