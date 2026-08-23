@@ -2,106 +2,188 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify - Your favourite music is here</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuneify — Your Favourite Music is Here</title>
+  <meta name="description" content="Stream your favourite NCS tracks and trending beats with Tuneify — a premium Spotify-inspired music player.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="shortcut icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li class="brand"><img src="logo.png" alt="Spotify"> Spotify</li>
-            <li>Home</li>
-            <li>About</li>
-        </ul>
-    </nav>
+  <!-- Animated Background Blobs -->
+  <div class="bg-blobs">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
 
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fas fa-music"></i>
+        </div>
+        <span class="brand-name">Tuneify</span>
+      </div>
+      <ul class="nav-links">
+        <li class="nav-link active" data-page="home"><i class="fas fa-home"></i> Home</li>
+        <li class="nav-link" data-page="about"><i class="fas fa-info-circle"></i> About</li>
+      </ul>
+      <div class="nav-right">
+        <span class="yt-badge" id="ytPlaylistBtn" title="Open YouTube Playlist">
+          <i class="fab fa-youtube"></i> NCS Playlist
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-wrapper">
     <div class="container">
-        <div class="songList">
-            <h1>Best of NCS - No Copyright Sounds</h1>
-            <div class="songItemContainer">
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="0"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="1"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="2"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="3"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="4"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="5"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="6"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="7"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="8"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="9"
-                                class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-            </div>
-        </div>
-        <div class="songBanner"></div>
-    </div>
 
-    <div class="bottom">
-        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
-        <div class="icons">
-            <!-- fontawesome icons -->
-            <i class="fas fa-3x fa-step-backward" id="previous"></i>
-            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
-            <i class="fas fa-3x fa-step-forward" id="next"></i>
+      <!-- Song List Panel -->
+      <div class="songList">
+        <div class="list-header">
+          <div class="list-header-text">
+            <h1>Best of NCS</h1>
+            <p class="list-subtitle">No Copyright Sounds — Free Forever</p>
+          </div>
+          <div class="playlist-yt-links">
+            <a href="https://youtu.be/ltyf0PjonQg?si=_2Zyd0NvKHTWcHW9" target="_blank" class="yt-link-btn" title="NCS Playlist 1 on YouTube">
+              <i class="fab fa-youtube"></i>
+              <span>NCS Mix Vol.1</span>
+            </a>
+            <a href="https://youtu.be/jJbr4tzIGBI?si=z8bzb9qdaA46kNKX" target="_blank" class="yt-link-btn yt-link-btn2" title="NCS Playlist 2 on YouTube">
+              <i class="fab fa-youtube"></i>
+              <span>NCS Mix Vol.2</span>
+            </a>
+          </div>
         </div>
-        <div class="songInfo">
-            <img src="playing.gif" width="42px" alt="" id="gif"> <span id="masterSongName">Warriyo - Mortals [NCS
-                Release]</span>
+
+        <div class="songItemContainer" id="songItemContainer">
+          <!-- Song items injected by JS -->
         </div>
+      </div>
+
+      <!-- Song Banner Panel -->
+      <div class="songBanner" id="songBanner">
+        <div class="banner-empty-state" id="bannerEmpty">
+          <div class="banner-empty-icon">
+            <i class="fas fa-headphones-alt"></i>
+          </div>
+          <p>Pick a track to start listening</p>
+        </div>
+        <div class="banner-content" id="bannerContent" style="display:none;">
+          <div class="banner-cover-wrap">
+            <img id="bannerCoverImg" src="" alt="" class="banner-cover">
+            <div class="banner-cover-glow" id="bannerGlow"></div>
+          </div>
+          <div class="banner-meta">
+            <span class="now-playing-label" id="nowPlayingLabel">
+              <span class="np-dot"></span> Now Playing
+            </span>
+            <h2 class="banner-title" id="bannerTitle">Song Title</h2>
+            <p class="banner-artist" id="bannerArtist">Artist</p>
+            <div class="banner-actions">
+              <button class="banner-play-btn" id="bannerPlayBtn">
+                <i class="fas fa-play" id="bannerPlayIcon"></i>
+                <span id="bannerPlayText">Play</span>
+              </button>
+              <a class="banner-yt-btn" id="bannerYtBtn" href="#" target="_blank">
+                <i class="fab fa-youtube"></i>
+                <span>Watch on YouTube</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
+  </div>
+
+  <!-- YouTube Modal -->
+  <div class="yt-modal-overlay" id="ytModalOverlay">
+    <div class="yt-modal" id="ytModal">
+      <div class="yt-modal-header">
+        <span class="yt-modal-title" id="ytModalTitle">Now Playing</span>
+        <button class="yt-modal-close" id="ytModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="yt-modal-body">
+        <iframe
+          id="ytIframe"
+          src=""
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="yt-modal-footer">
+        <a id="ytModalOpenLink" href="#" target="_blank" class="yt-open-link">
+          <i class="fab fa-youtube"></i> Open in YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player Bar -->
+  <div class="bottom" id="bottom">
+    <div class="player-bg-glow" id="playerGlow"></div>
+    <div class="player-inner">
+
+      <!-- Song Info Left -->
+      <div class="player-left">
+        <img id="playerCover" src="" alt="" class="player-cover" style="opacity:0;">
+        <div class="player-meta">
+          <span class="player-song-name" id="masterSongName">Select a song</span>
+          <span class="player-artist-name" id="masterArtistName">—</span>
+        </div>
+        <img src="playing.gif" width="28px" alt="playing" id="gif" class="playing-gif">
+      </div>
+
+      <!-- Controls Center -->
+      <div class="player-center">
+        <div class="controls">
+          <i class="fas fa-step-backward ctrl-btn" id="previous" title="Previous"></i>
+          <div class="play-btn-wrap">
+            <i class="far fa-play-circle play-main-btn" id="masterPlay" title="Play/Pause"></i>
+          </div>
+          <i class="fas fa-step-forward ctrl-btn" id="next" title="Next"></i>
+        </div>
+        <div class="progress-area">
+          <span class="time-display" id="currentTime">0:00</span>
+          <div class="progress-track" id="progressTrack">
+            <div class="progress-rail">
+              <div class="progress-fill" id="progressFill"></div>
+              <div class="progress-thumb" id="progressThumb"></div>
+            </div>
+          </div>
+          <span class="time-display" id="totalTime">0:00</span>
+        </div>
+      </div>
+
+      <!-- Volume Right -->
+      <div class="player-right">
+        <i class="fas fa-volume-up vol-icon" id="volIcon"></i>
+        <input type="range" id="volumeSlider" class="vol-slider" min="0" max="1" step="0.01" value="1">
+        <a class="yt-mini-btn" id="ytMiniBtn" href="#" target="_blank" title="Watch on YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,9 @@
-import SongList from './SongList';
-import SongBanner from './SongBanner';
+import ProDashboard from './ProDashboard';
 
 function HomePage() {
   return (
-    <div className="container">
-      <SongList />
-      <SongBanner />
+    <div className="homePageWrapper">
+      <ProDashboard />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { usePlayer } from '../context/PlayerContext';
 
-function VolumeControl() {
+function VolumeControl({ onOpenQueue }) {
   const { volume, setVolume, isMuted, toggleMute } = usePlayer();
 
   const volumeIcon =
@@ -28,6 +28,9 @@ function VolumeControl() {
           onChange={(e) => setVolume(parseFloat(e.target.value))}
           title="Volume"
         />
+        <button className="queueToggle" onClick={onOpenQueue} title="Queue">
+          <i className="fas fa-list-ul"></i>
+        </button>
       </div>
     </div>
   );
