@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import { usePlayer } from '../context/PlayerContext';
 
 function Navbar({ page, setPage }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const links = [
     { name: 'Home', icon: 'fa-house' },
     { name: 'Search', icon: 'fa-magnifying-glass' },
@@ -11,6 +14,9 @@ function Navbar({ page, setPage }) {
   ];
 
   const { songs, playSong, isPlaying } = usePlayer();
+
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
     <nav className="proNavbar">
@@ -25,12 +31,24 @@ function Navbar({ page, setPage }) {
           </div>
         </li>
 
-        <div className="navLinksContainer">
+        <button
+          className="mobileMenuToggle"
+          onClick={toggleMobileMenu}
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileMenuOpen}
+        >
+          <i className={`fas ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`} />
+        </button>
+
+        <div className={`navLinksContainer ${mobileMenuOpen ? 'open' : ''}`}>
           {links.map((link) => (
             <li
               key={link.name}
               className={`navLink${page === link.name ? ' active' : ''}`}
-              onClick={() => setPage(link.name)}
+              onClick={() => {
+                setPage(link.name);
+                closeMobileMenu();
+              }}
             >
               <i className={`fas ${link.icon}`} />
               <span>{link.name}</span>
@@ -45,7 +63,6 @@ function Navbar({ page, setPage }) {
           <button
             className="navStreamPill"
             onClick={() => {
-              // Quick play the first special live YouTube stream in-app
               const specialIdx = songs.findIndex((s) => s.isSpecial);
               if (specialIdx !== -1) playSong(specialIdx);
             }}
@@ -61,6 +78,11 @@ function Navbar({ page, setPage }) {
           <ThemeToggle />
         </li>
       </ul>
+
+      {/* Mobile menu overlay */}
+      {mobileMenuOpen && (
+        <div className="mobileMenuOverlay" onClick={closeMobileMenu} />
+      )}
     </nav>
   );
 }

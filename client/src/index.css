@@ -2690,3 +2690,1343 @@ html {
     display: none;
   }
 }
+
+/* ============================================================
+   MOBILE RESPONSIVE STYLES (≤768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* Prevent horizontal scrolling */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* --- NAVBAR --- */
+  .proNavbar {
+    padding: 0 12px;
+  }
+
+  .proNavList {
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  .brand {
+    margin-right: 0;
+  }
+
+  .brandTitle {
+    font-size: 1.1rem;
+  }
+
+  .brandBadge {
+    font-size: 0.55rem;
+    padding: 1px 5px;
+  }
+
+  .navLinksContainer {
+    display: none !important;
+  }
+
+  .navQuickStreamItem {
+    display: none;
+  }
+
+  /* --- HERO HEADER --- */
+  .proHeroHeader {
+    padding: 20px 16px;
+    border-radius: 16px;
+    margin: 0 8px;
+  }
+
+  .proHeroTitle {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .proHeroSubtitle {
+    font-size: 0.85rem;
+  }
+
+  .proBadgeGroup {
+    gap: 6px;
+  }
+
+  .proVipBadge,
+  .proLivePill,
+  .proLosslessPill {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+
+  .proHeroSearchWrap {
+    max-width: 100%;
+    padding: 4px 12px;
+  }
+
+  .proSearchInput {
+    font-size: 0.85rem;
+    padding: 8px 0;
+  }
+
+  /* --- PRO SECTIONS --- */
+  .proSection {
+    padding: 0 8px;
+  }
+
+  .proSectionTitleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .proSectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .proStationCount {
+    font-size: 0.75rem;
+  }
+
+  /* --- STATION GRID --- */
+  .proStationGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .proStationCard {
+    padding: 10px;
+  }
+
+  .stationCoverWrap {
+    aspect-ratio: 1;
+  }
+
+  .stationPlayBtn {
+    width: 36px;
+    height: 36px;
+    bottom: 8px;
+    right: 8px;
+  }
+
+  .stationInfo {
+    gap: 2px;
+  }
+
+  .stationGenre {
+    font-size: 0.6rem;
+  }
+
+  .stationTitle {
+    font-size: 0.82rem;
+  }
+
+  .stationArtist {
+    font-size: 0.7rem;
+  }
+
+  /* --- CATEGORY TABS --- */
+  .categoryTabsBar {
+    padding-bottom: 8px;
+    margin: 0 -8px;
+    padding-left: 8px;
+  }
+
+  .categoryTabsList {
+    gap: 6px;
+  }
+
+  .catTabBtn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  /* --- MAIN TWO COLUMN LAYOUT --- */
+  .proMainTwoCol {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .proTrackListPanel {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .trackListPanelHeader {
+    grid-template-columns: 1fr 80px;
+    padding: 6px 10px 10px;
+    font-size: 0.7rem;
+  }
+
+  .colHeaderAction {
+    text-align: right;
+  }
+
+  .proTrackRow {
+    grid-template-columns: 1fr 80px;
+    padding: 8px 10px;
+  }
+
+  .trackRowLeft {
+    gap: 8px;
+  }
+
+  .trackIndex {
+    width: 20px;
+    font-size: 0.75rem;
+  }
+
+  .trackThumbWrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  .trackMeta {
+    gap: 1px;
+  }
+
+  .trackName {
+    font-size: 0.82rem;
+  }
+
+  .specialStreamBadge {
+    font-size: 0.52rem;
+    padding: 1px 4px;
+  }
+
+  .trackArtist {
+    font-size: 0.68rem;
+  }
+
+  .trackRowRight {
+    gap: 8px;
+  }
+
+  .trackDuration {
+    font-size: 0.72rem;
+    min-width: 32px;
+  }
+
+  .proPlayPillBtn {
+    padding: 5px 10px;
+    font-size: 0.68rem;
+  }
+
+  /* --- BANNER SIDE --- */
+  .proBannerSide {
+    position: static;
+    gap: 12px;
+  }
+
+  .songBanner {
+    padding: 20px 16px;
+    min-height: auto;
+  }
+
+  .bannerCoverContainer {
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+  }
+
+  .bannerCoverRing {
+    inset: -2px;
+    border-radius: 14px;
+  }
+
+  .bannerBadgeRow {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .bannerLabel {
+    font-size: 0.65rem;
+  }
+
+  .bannerSpecialBadge {
+    font-size: 0.55rem;
+    padding: 1px 5px;
+  }
+
+  .bannerTitle {
+    font-size: 1rem;
+  }
+
+  .bannerArtist {
+    font-size: 0.75rem;
+  }
+
+  .bannerGenreTag {
+    font-size: 0.7rem;
+  }
+
+  .bannerPlayBtn {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+  }
+
+  .likeButtonLarge {
+    font-size: 1.25rem;
+    padding: 8px;
+  }
+
+  .quickStationWidget {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .widgetTitle {
+    font-size: 0.75rem;
+  }
+
+  .widgetItem {
+    padding: 6px 8px;
+  }
+
+  .widgetThumb {
+    width: 32px;
+    height: 32px;
+  }
+
+  .widgetName {
+    font-size: 0.75rem;
+  }
+
+  .widgetGenre {
+    font-size: 0.62rem;
+  }
+
+  .widgetPlay {
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
+  }
+
+  /* --- PLAYER BAR --- */
+  .bottom {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    width: auto;
+    transform: none;
+    border-radius: 16px;
+    padding: 8px 12px;
+  }
+
+  .player-inner {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 8px;
+    padding: 0 4px;
+  }
+
+  /* Player Left */
+  .player-left {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .playerCoverContainer {
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+  }
+
+  .playerCover {
+    width: 44px;
+    height: 44px;
+  }
+
+  .player-meta {
+    gap: 2px;
+  }
+
+  .playerSongTitle {
+    font-size: 0.78rem;
+    max-width: 120px;
+  }
+
+  .playerSongArtist {
+    font-size: 0.62rem;
+    max-width: 120px;
+  }
+
+  .playerStreamTag {
+    font-size: 0.5rem;
+    padding: 1px 4px;
+  }
+
+  .playerPlayingGif {
+    width: 18px;
+  }
+
+  /* Player Center */
+  .playerCenterInner {
+    gap: 2px;
+  }
+
+  .playbackControls {
+    gap: 12px;
+  }
+
+  .ctrl-btn {
+    font-size: 1rem;
+  }
+
+  .play-main-btn {
+    font-size: 2rem !important;
+  }
+
+  .iconToggle {
+    font-size: 0.78rem;
+    padding: 4px;
+  }
+
+  .playCircle {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .progress-area {
+    gap: 6px;
+  }
+
+  .time-display {
+    font-size: 0.6rem;
+    min-width: 28px;
+  }
+
+  .progress-track {
+    height: 16px;
+  }
+
+  .progress-rail {
+    height: 3px;
+  }
+
+  .progress-track:hover .progress-rail {
+    height: 5px;
+  }
+
+  .progressThumb {
+    width: 11px;
+    height: 11px;
+  }
+
+  /* Player Right */
+  .player-right {
+    gap: 6px;
+  }
+
+  .vol-icon {
+    font-size: 0.85rem;
+  }
+
+  .vol-slider {
+    width: 60px;
+  }
+
+  .vol-slider:hover {
+    width: 80px;
+  }
+
+  .yt-mini-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .queueToggle {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+
+  /* --- QUEUE DRAWER --- */
+  .queueDrawer {
+    width: 100%;
+    right: -100%;
+    padding: 16px 12px calc(80px + 16px);
+  }
+
+  .queueHeader h3 {
+    font-size: 1rem;
+  }
+
+  .queueHint {
+    font-size: 0.65rem;
+  }
+
+  .queueRow {
+    padding: 6px 8px;
+  }
+
+  .queueCover {
+    width: 36px;
+    height: 36px;
+  }
+
+  .queueTitle {
+    font-size: 0.8rem;
+  }
+
+  .queueArtist {
+    font-size: 0.65rem;
+  }
+
+  /* --- SONG BANNER (empty state) --- */
+  .songBanner.empty {
+    padding: 24px 16px;
+  }
+
+  .bannerEmptyIcon {
+    font-size: 2rem;
+  }
+
+  .bannerPlaceholderContent h3 {
+    font-size: 1rem;
+  }
+
+  .bannerPlaceholderContent p {
+    font-size: 0.8rem;
+  }
+
+  /* --- SEARCH PAGE --- */
+  .container.pageContainer {
+    margin: 8px auto;
+    width: calc(100% - 16px);
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .searchInput {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    border-radius: 20px;
+  }
+
+  .searchItem {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .searchCover {
+    width: 44px;
+    height: 44px;
+  }
+
+  .searchTitle {
+    font-size: 0.85rem;
+  }
+
+  .searchArtist {
+    font-size: 0.7rem;
+  }
+
+  .searchPlayIcon {
+    font-size: 0.85rem;
+  }
+
+  /* --- BROWSE PAGE --- */
+  .genreGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+  }
+
+  .genreCard {
+    padding: 16px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }
+
+  .genreIcon {
+    font-size: 1.3rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+    margin: 16px 0 12px;
+  }
+
+  .browseItem {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .browseCover {
+    width: 44px;
+    height: 44px;
+  }
+
+  .browseTitle {
+    font-size: 0.85rem;
+  }
+
+  .browseArtist {
+    font-size: 0.7rem;
+  }
+
+  /* --- LIBRARY PAGE --- */
+  .nowPlayingCard {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .nowPlayingCard h3 {
+    font-size: 0.75rem;
+  }
+
+  .nowPlayingRow {
+    gap: 10px;
+  }
+
+  .npCover {
+    width: 52px;
+    height: 52px;
+  }
+
+  .npTitle {
+    font-size: 0.9rem;
+  }
+
+  .npArtist {
+    font-size: 0.75rem;
+  }
+
+  .libraryItem {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .libCover {
+    width: 44px;
+    height: 44px;
+  }
+
+  .libTitle {
+    font-size: 0.85rem;
+  }
+
+  .libArtist {
+    font-size: 0.7rem;
+  }
+
+  .libIndex {
+    min-width: 20px;
+    font-size: 0.8rem;
+  }
+
+  /* --- ABOUT PAGE --- */
+  .aboutCard {
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+
+  .aboutLogo {
+    width: 64px;
+  }
+
+  .aboutDesc {
+    font-size: 0.85rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .featureCard {
+    padding: 18px 12px;
+    border-radius: 10px;
+  }
+
+  .featureIcon {
+    font-size: 1.5rem;
+  }
+
+  .featureCard h3 {
+    font-size: 0.9rem;
+  }
+
+  .featureCard p {
+    font-size: 0.75rem;
+  }
+
+  /* --- YOUTUBE MODAL --- */
+  .yt-modal {
+    width: 95vw;
+    border-radius: 14px;
+  }
+
+  .yt-modal-header {
+    padding: 12px 16px;
+  }
+
+  .yt-modal-title {
+    font-size: 0.85rem;
+  }
+
+  .yt-modal-close {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .yt-modal-footer {
+    padding: 10px 16px;
+  }
+
+  .yt-open-link {
+    padding: 7px 18px;
+    font-size: 0.78rem;
+  }
+
+  /* --- TEXT OVERFLOW PREVENTION --- */
+  .playerSongTitle,
+  .playerSongArtist,
+  .trackName,
+  .trackArtist,
+  .stationTitle,
+  .stationArtist,
+  .bannerTitle,
+  .bannerArtist,
+  .widgetName,
+  .widgetGenre,
+  .queueTitle,
+  .queueArtist,
+  .searchTitle,
+  .searchArtist,
+  .browseTitle,
+  .browseArtist,
+  .libTitle,
+  .libArtist,
+  .npTitle,
+  .npArtist {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  /* --- IMAGES --- */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* --- BUTTONS --- */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* --- PROGRESS BAR TOUCH --- */
+  .progressTrack {
+    touch-action: none;
+  }
+
+  /* --- SCROLLBAR --- */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE (≤480px)
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .proHeroTitle {
+    font-size: 1.3rem;
+  }
+
+  .proHeroSubtitle {
+    font-size: 0.8rem;
+  }
+
+  .proBadgeGroup {
+    flex-wrap: wrap;
+  }
+
+  .proStationGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .proStationCard {
+    padding: 8px;
+  }
+
+  .stationCoverWrap {
+    margin-bottom: 8px;
+  }
+
+  .stationPlayBtn {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .stationGenre {
+    font-size: 0.55rem;
+  }
+
+  .stationTitle {
+    font-size: 0.75rem;
+  }
+
+  .stationArtist {
+    font-size: 0.65rem;
+  }
+
+  .catTabBtn {
+    padding: 5px 10px;
+    font-size: 0.72rem;
+  }
+
+  .proTrackListPanel {
+    padding: 12px;
+  }
+
+  .trackListPanelHeader {
+    grid-template-columns: 1fr 70px;
+    font-size: 0.65rem;
+  }
+
+  .proTrackRow {
+    grid-template-columns: 1fr 70px;
+    padding: 6px 8px;
+  }
+
+  .trackIndex {
+    width: 18px;
+    font-size: 0.7rem;
+  }
+
+  .trackThumbWrap {
+    width: 36px;
+    height: 36px;
+  }
+
+  .trackName {
+    font-size: 0.78rem;
+  }
+
+  .trackArtist {
+    font-size: 0.64rem;
+  }
+
+  .trackDuration {
+    font-size: 0.68rem;
+    min-width: 28px;
+  }
+
+  .proPlayPillBtn {
+    padding: 4px 8px;
+    font-size: 0.62rem;
+  }
+
+  .songBanner {
+    padding: 16px 12px;
+  }
+
+  .bannerCoverContainer {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+  }
+
+  .bannerTitle {
+    font-size: 0.9rem;
+  }
+
+  .bannerArtist {
+    font-size: 0.7rem;
+  }
+
+  .bannerPlayBtn {
+    padding: 7px 16px;
+    font-size: 0.75rem;
+  }
+
+  .quickStationWidget {
+    padding: 10px;
+  }
+
+  .widgetItem {
+    padding: 5px 6px;
+  }
+
+  .widgetThumb {
+    width: 28px;
+    height: 28px;
+  }
+
+  .widgetName {
+    font-size: 0.7rem;
+  }
+
+  .widgetGenre {
+    font-size: 0.6rem;
+  }
+
+  .widgetPlay {
+    width: 22px;
+    height: 22px;
+    font-size: 0.6rem;
+  }
+
+  .bottom {
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border-radius: 14px;
+    padding: 6px 8px;
+  }
+
+  .player-inner {
+    grid-template-columns: 1fr 1.8fr;
+    gap: 6px;
+  }
+
+  .player-right {
+    display: none;
+  }
+
+  .playerCoverContainer {
+    width: 40px;
+    height: 40px;
+  }
+
+  .playerCover {
+    width: 40px;
+    height: 40px;
+  }
+
+  .playerSongTitle {
+    font-size: 0.72rem;
+    max-width: 100px;
+  }
+
+  .playerSongArtist {
+    font-size: 0.58rem;
+    max-width: 100px;
+  }
+
+  .playbackControls {
+    gap: 8px;
+  }
+
+  .ctrl-btn {
+    font-size: 0.9rem;
+  }
+
+  .play-main-btn {
+    font-size: 1.8rem !important;
+  }
+
+  .iconToggle {
+    font-size: 0.7rem;
+    padding: 3px;
+  }
+
+  .playCircle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .progress-area {
+    gap: 4px;
+  }
+
+  .time-display {
+    font-size: 0.55rem;
+    min-width: 24px;
+  }
+
+  .progress-track {
+    height: 14px;
+  }
+
+  .queueDrawer {
+    padding: 12px 8px calc(70px + 12px);
+  }
+
+  .queueRow {
+    padding: 5px 6px;
+  }
+
+  .queueCover {
+    width: 32px;
+    height: 32px;
+  }
+
+  .queueTitle {
+    font-size: 0.75rem;
+  }
+
+  .queueArtist {
+    font-size: 0.6rem;
+  }
+
+  .container.pageContainer {
+    margin: 4px auto;
+    width: calc(100% - 8px);
+    padding: 16px 12px;
+    border-radius: 10px;
+  }
+
+  .pageTitle {
+    font-size: 1.25rem;
+  }
+
+  .searchInput {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 16px;
+  }
+
+  .genreGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .genreCard {
+    padding: 12px 6px;
+    font-size: 0.75rem;
+  }
+
+  .genreIcon {
+    font-size: 1.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1rem;
+  }
+
+  .browseItem,
+  .libraryItem,
+  .searchItem {
+    padding: 6px;
+    gap: 8px;
+  }
+
+  .browseCover,
+  .libCover,
+  .searchCover {
+    width: 40px;
+    height: 40px;
+  }
+
+  .browseTitle,
+  .libTitle,
+  .searchTitle {
+    font-size: 0.8rem;
+  }
+
+  .browseArtist,
+  .libArtist,
+  .searchArtist {
+    font-size: 0.65rem;
+  }
+
+  .nowPlayingCard {
+    padding: 10px;
+  }
+
+  .nowPlayingRow {
+    gap: 8px;
+  }
+
+  .npCover {
+    width: 44px;
+    height: 44px;
+  }
+
+  .npTitle {
+    font-size: 0.85rem;
+  }
+
+  .npArtist {
+    font-size: 0.7rem;
+  }
+
+  .aboutCard {
+    padding: 20px 12px;
+  }
+
+  .aboutLogo {
+    width: 56px;
+  }
+
+  .aboutDesc {
+    font-size: 0.8rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .featureCard {
+    padding: 16px 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .featureIcon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .featureCard h3 {
+    font-size: 0.85rem;
+  }
+
+  .featureCard p {
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================================
+   MOBILE MENU TOGGLE & OVERLAY
+   ============================================================ */
+
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-1);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mobileMenuToggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent-ui);
+}
+
+.mobileMenuOverlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileMenuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navLinksContainer {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border-bottom: 1px solid var(--border);
+    padding: 16px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 99;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  }
+
+  .navLinksContainer.open {
+    display: flex;
+  }
+
+  .navLinksContainer .navLink {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .navLinksContainer .navLink i {
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+  }
+
+  .mobileMenuOverlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    opacity: 0;
+    animation: fadeIn 0.2s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+}
+
+/* ============================================================
+   EXTRA SMALL MOBILE (≤375px)
+   ============================================================ */
+
+@media (max-width: 375px) {
+  .proHeroTitle {
+    font-size: 1.15rem;
+  }
+
+  .proStationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .proTrackRow {
+    grid-template-columns: 1fr;
+  }
+
+  .trackRowRight {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 4px;
+    padding-left: 50px;
+  }
+
+  .trackDuration {
+    order: 1;
+  }
+
+  .proPlayPillBtn {
+    order: 2;
+  }
+
+  .trackListPanelHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .colHeaderAction {
+    display: none;
+  }
+
+  .songBanner {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .bannerCoverContainer {
+    width: 80px;
+    height: 80px;
+  }
+
+  .bannerMeta {
+    width: 100%;
+  }
+
+  .bannerActions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .bannerPlayBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .likeButtonLarge {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .quickStationWidget .widgetList {
+    gap: 6px;
+  }
+
+  .player-inner {
+    grid-template-columns: 1fr 1.6fr;
+  }
+
+  .playerSongTitle {
+    max-width: 80px;
+  }
+
+  .playerSongArtist {
+    max-width: 80px;
+  }
+
+  .playbackControls {
+    gap: 6px;
+  }
+
+  .ctrl-btn {
+    font-size: 0.85rem;
+  }
+
+  .play-main-btn {
+    font-size: 1.6rem !important;
+  }
+
+  .playCircle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================================
+   TABLET (768px - 1024px) - Minor adjustments
+   ============================================================ */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .proMainTwoCol {
+    grid-template-columns: 1fr 340px;
+    gap: 20px;
+  }
+
+  .proBannerSide {
+    position: sticky;
+    top: 80px;
+  }
+
+  .proStationGrid {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+
+  .proTrackRow,
+  .trackListPanelHeader {
+    grid-template-columns: 1fr 120px 160px;
+  }
+
+  .trackRowGenre,
+  .colHeaderGenre {
+    display: block;
+  }
+}
