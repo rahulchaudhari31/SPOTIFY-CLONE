@@ -1153,3 +1153,20 @@ nav {
     font-size: 0.63rem;
   }
 }
+
+/* ---- PLAYER POSITION POLISH ---- */
+.bottom {
+  bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .bottom {
+    bottom: calc(4px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom {
+    bottom: calc(2px + env(safe-area-inset-bottom, 0px));
+  }
+}

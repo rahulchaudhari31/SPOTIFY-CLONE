@@ -141,11 +141,6 @@ export function PlayerProvider({ children }) {
             if (e.data === 100) console.warn('Video not found');
             if (e.data === 101) console.warn('Embedding disabled by video owner');
             if (e.data === 150) console.warn('Embedding disabled');
-            // Fallback: open in new tab
-            const current = songsRef.current[currentIndexRef.current];
-            if (current?.ytVideoId) {
-              window.open(`https://www.youtube.com/watch?v=${current.ytVideoId}`, '_blank');
-            }
             setIsPlaying(false);
             clearInterval(ytTimerRef.current);
           },
