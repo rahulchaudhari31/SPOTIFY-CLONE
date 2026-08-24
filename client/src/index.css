@@ -460,7 +460,7 @@ nav ul li {
   padding: 12px 22px;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, rgba(32, 32, 36, 0.72), rgba(16, 16, 18, 0.68));
+  background: linear-gradient(135deg, color-mix(in srgb, var(--container-bg) 72%, transparent), color-mix(in srgb, var(--container-bg) 68%, transparent));
   backdrop-filter: blur(26px) saturate(160%);
   -webkit-backdrop-filter: blur(26px) saturate(160%);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -1664,7 +1664,7 @@ html {
 
 /* ---- PRO NAVBAR ENHANCEMENTS ---- */
 .proNavbar {
-  background: rgba(10, 10, 14, 0.75);
+  background: var(--nav-bg);
   backdrop-filter: blur(28px) saturate(160%);
   -webkit-backdrop-filter: blur(28px) saturate(160%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1807,7 +1807,7 @@ html {
   position: relative;
   border-radius: 24px;
   padding: 38px 36px;
-  background: linear-gradient(145deg, rgba(28, 28, 34, 0.75), rgba(14, 14, 18, 0.85));
+  background: linear-gradient(145deg, color-mix(in srgb, var(--container-bg) 75%, transparent), color-mix(in srgb, var(--container-bg) 85%, transparent));
   backdrop-filter: blur(24px) saturate(140%);
   -webkit-backdrop-filter: blur(24px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -1998,6 +1998,21 @@ html {
   font-weight: 600;
 }
 
+.proStationScroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(29,185,84,0.5) rgba(255,255,255,0.05);
+}
+.proStationScroll::-webkit-scrollbar { height: 5px; }
+.proStationScroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); border-radius: 10px; }
+.proStationScroll::-webkit-scrollbar-thumb { background: rgba(29,185,84,0.5); border-radius: 10px; }
+.proStationScroll::-webkit-scrollbar-thumb:hover { background: #1db954; }
+
 .proStationGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -2005,8 +2020,8 @@ html {
 }
 
 .proStationCard {
-  background: rgba(20, 20, 26, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, var(--container-bg) 80%, transparent);
+  border: 1px solid var(--border, rgba(255,255,255,0.08));
   border-radius: 18px;
   padding: 14px;
   cursor: pointer;
@@ -2014,10 +2029,13 @@ html {
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  width: 200px;
+  scroll-snap-align: start;
 }
 
 .proStationCard:hover {
-  background: rgba(30, 30, 40, 0.85);
+  background: color-mix(in srgb, var(--container-bg) 90%, var(--song-accent) 10%);
   border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 30px var(--song-accent-dim);
 }
@@ -4028,5 +4046,104 @@ html {
   .trackRowGenre,
   .colHeaderGenre {
     display: block;
+  }
+}
+
+/* YouTube Tracks Pagination */
+.ytPagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.ytPageBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.ytPageBtn:hover:not(:disabled) {
+  background: rgba(29,185,84,0.25);
+  border-color: #1db954;
+  transform: scale(1.04);
+}
+.ytPageBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.ytPageInfo {
+  color: #b3b3b3;
+  font-size: 0.85rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* ── Mobile Bottom Tab Bar ── */
+.mobileBottomNav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileBottomNav {
+    display: flex;
+    position: fixed;
+    bottom: 72px; /* sit above the player bar */
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border-top: 1px solid var(--border);
+    z-index: 200;
+    align-items: stretch;
+  }
+
+  .mobileTabBtn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background: none;
+    border: none;
+    color: var(--text-3);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+  }
+  .mobileTabBtn i {
+    font-size: 1.1rem;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .mobileTabBtn.mobileTabActive {
+    color: var(--song-accent);
+  }
+  .mobileTabBtn.mobileTabActive i {
+    transform: scale(1.15);
+  }
+  .mobileTabBtn:active i {
+    transform: scale(0.9);
+  }
+
+  /* Hide top nav links on mobile */
+  .navLinksContainer {
+    display: none !important;
+  }
+  /* Hide live stream pill on mobile to save space */
+  .navQuickStreamItem {
+    display: none;
   }
 }

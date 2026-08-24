@@ -31,15 +31,6 @@ function Navbar({ page, setPage }) {
           </div>
         </li>
 
-        <button
-          className="mobileMenuToggle"
-          onClick={toggleMobileMenu}
-          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={mobileMenuOpen}
-        >
-          <i className={`fas ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`} />
-        </button>
-
         <div className={`navLinksContainer ${mobileMenuOpen ? 'open' : ''}`}>
           {links.map((link) => (
             <li
