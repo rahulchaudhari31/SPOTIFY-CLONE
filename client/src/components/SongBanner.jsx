@@ -19,7 +19,7 @@ function SongBanner() {
   }
 
   return (
-    <div className="songBanner">
+    <div className="songBanner compact">
       <div className="bannerCoverContainer">
         <img src={currentSong.cover} alt={currentSong.title} className="bannerCover" />
         {isPlaying && <div className="bannerCoverRing" />}
@@ -42,8 +42,7 @@ function SongBanner() {
           )}
         </div>
         <h2 className="bannerTitle">{currentSong.title}</h2>
-        <p className="bannerArtist">{currentSong.artist}</p>
-        <span className="bannerGenreTag">{currentSong.genre || 'Music'}</span>
+        <p className="bannerArtist">Aditya Music PLAYBACK</p>
         <div className="bannerActions">
           <button className="bannerPlayBtn" onClick={togglePlay}>
             <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>

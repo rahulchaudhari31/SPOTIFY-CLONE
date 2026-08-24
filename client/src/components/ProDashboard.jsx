@@ -4,6 +4,23 @@ import { usePlayer, formatTime } from '../context/PlayerContext';
 import LikeButton from './LikeButton';
 import SongBanner from './SongBanner';
 
+function cleanTitle(str) {
+  if (!str) return str;
+  return str
+    .replace(/\|.*$/i, '')
+    .replace(/\(.*?\)/gi, '')
+    .replace(/\[.*?\]/gi, '')
+    .replace(/\bfull\b.*$/i, '')
+    .replace(/\bofficial\b.*$/i, '')
+    .replace(/\baudio\b.*$/i, '')
+    .replace(/\bvideo\b.*$/i, '')
+    .replace(/\blyrics\b.*$/i, '')
+    .replace(/\bvisualizer\b.*$/i, '')
+    .replace(/\bft\.?\b.*$/i, '')
+    .replace(/\bfeat\.?\b.*$/i, '')
+    .trim();
+}
+
 export default function ProDashboard() {
   const {
     songs,
@@ -152,7 +169,7 @@ export default function ProDashboard() {
 
                 <div className="stationInfo">
                   <span className="stationGenre">{station.genre}</span>
-                  <h3 className="stationTitle">{station.title}</h3>
+                  <h3 className="stationTitle" title={station.title}>{station.title}</h3>
                   <div className="stationFooter">
                     <p className="stationArtist">{station.artist}</p>
                     <LikeButton songId={station.id} className="stationLikeBtn" />
@@ -247,8 +264,8 @@ export default function ProDashboard() {
                           </button>
                         </div>
                         <div className="trackMeta">
-                          <span className="trackName">
-                            {song.title}
+                          <span className="trackName" title={song.title}>
+                            {cleanTitle(song.title)}
                             {song.isSpecial && (
                               <span className="specialStreamBadge">
                                 <i className="fab fa-youtube" /> STREAM
@@ -296,7 +313,7 @@ export default function ProDashboard() {
                 <i className="fas fa-bolt" /> Quick Vibe Stations
               </h4>
               <div className="widgetList">
-                {proStations.slice(0, 3).map((st) => {
+                {proStations.filter(s => s.isSpecial).map((st) => {
                   const stIdx = songs.findIndex((s) => s.id === st.id);
                   const isCur = currentSong?.id === st.id && isPlaying;
                   return (

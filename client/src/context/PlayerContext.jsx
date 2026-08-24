@@ -116,11 +116,38 @@ export function PlayerProvider({ children }) {
             const YTState = window.YT?.PlayerState;
             if (YTState && e.data === YTState.PLAYING) {
               setIsPlaying(true);
+              try {
+                const vd = e.target.getVideoData();
+                if (vd?.title) {
+                  const idx = currentIndexRef.current;
+                  const song = songsRef.current[idx];
+                  if (song && /^Track \d+$/.test(song.title)) {
+                    song.title = vd.title;
+                    if (vd.author) song.artist = vd.author;
+                    setSongs([...songsRef.current]);
+                  }
+                }
+              } catch (_) {}
             } else if (YTState && e.data === YTState.PAUSED) {
               setIsPlaying(false);
             } else if (YTState && e.data === YTState.ENDED) {
               handleNextRef.current?.();
             }
+          },
+          onError: (e) => {
+            console.error('YouTube Player Error:', e.data);
+            if (e.data === 2) console.warn('Invalid video ID');
+            if (e.data === 5) console.warn('HTML5 player error');
+            if (e.data === 100) console.warn('Video not found');
+            if (e.data === 101) console.warn('Embedding disabled by video owner');
+            if (e.data === 150) console.warn('Embedding disabled');
+            // Fallback: open in new tab
+            const current = songsRef.current[currentIndexRef.current];
+            if (current?.ytVideoId) {
+              window.open(`https://www.youtube.com/watch?v=${current.ytVideoId}`, '_blank');
+            }
+            setIsPlaying(false);
+            clearInterval(ytTimerRef.current);
           },
         },
       });
@@ -131,7 +158,7 @@ export function PlayerProvider({ children }) {
     };
   }, []);
 
-  // Fetch songs list from server (optional backend enhancement)
+  // Fetch songs list from server, then enrich any remaining generic Track N names
   useEffect(() => {
     fetch('/api/songs')
       .then((res) => res.json())
@@ -139,12 +166,77 @@ export function PlayerProvider({ children }) {
         if (Array.isArray(data) && data.length > 0) {
           setSongs(data);
           songsRef.current = data;
+          enrichGenericTracks(data);
         }
       })
       .catch(() => {
-        // Standalone mode / Vercel fallback - already initialized with DEFAULT_SONGS
+        // Standalone / Vercel fallback — enrich DEFAULT_SONGS
+        enrichGenericTracks(DEFAULT_SONGS);
       })
       .finally(() => setLoading(false));
+  }, []);
+
+  // Fetch real title + artist from YouTube oEmbed for any Track N entries
+  function enrichGenericTracks(list) {
+    const toEnrich = list.filter(s => !s.file && s.ytVideoId && /^Track \d+$/.test(s.title));
+    if (toEnrich.length === 0) return;
+    let enriched = 0;
+
+    function cleanYouTubeTitle(rawTitle) {
+      if (!rawTitle) return rawTitle;
+      // Remove common YouTube metadata patterns
+      let title = rawTitle
+        .replace(/\(MUSIC VIDEO\)/gi, '')
+        .replace(/\(OFFICIAL VIDEO\)/gi, '')
+        .replace(/\(OFFICIAL MUSIC VIDEO\)/gi, '')
+        .replace(/\(OFFICIAL AUDIO\)/gi, '')
+        .replace(/\(LYRICS?\)/gi, '')
+        .replace(/\(LYRIC VIDEO\)/gi, '')
+        .replace(/\[.*?\]/g, '')
+        .replace(/\|.*$/, '')
+        .replace(/Latest Punjabi Songs \d+/gi, '')
+        .replace(/New Punjabi Songs \d+/gi, '')
+        .replace(/Punjabi Song \d+/gi, '')
+        .replace(/\d{4}/g, '')
+        .trim();
+      // Take first meaningful part (song name)
+      const parts = title.split(/\s+/).filter(p => p.length > 0);
+      return parts[0] ? parts.join(' ') : rawTitle;
+    }
+
+    toEnrich.forEach(song => {
+      fetch(`https://www.youtube.com/oembed?url=https://youtu.be/${song.ytVideoId}&format=json`)
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (!data) return;
+          if (data.title)       song.title  = cleanYouTubeTitle(data.title);
+          if (data.author_name) song.artist = data.author_name;
+          if (data.thumbnail_url) song.cover = data.thumbnail_url;
+          enriched++;
+          if (enriched % 20 === 0 || enriched === toEnrich.length) {
+            setSongs([...songsRef.current]);
+          }
+        })
+        .catch(() => {});
+    });
+  }
+
+  const playSongRef = useRef(null);
+
+  // Handle YouTube search result play (inject temp song)
+  useEffect(() => {
+    function onYtSearchPlay(e) {
+      const tempSong = e.detail;
+      const list = songsRef.current;
+      const exists = list.findIndex(s => s.ytVideoId === tempSong.ytVideoId);
+      if (exists !== -1) { playSongRef.current?.(exists); return; }
+      const newList = [...list, tempSong];
+      songsRef.current = newList;
+      setSongs(newList);
+      setTimeout(() => playSongRef.current?.(newList.length - 1), 50);
+    }
+    window.addEventListener('yt-search-play', onYtSearchPlay);
+    return () => window.removeEventListener('yt-search-play', onYtSearchPlay);
   }, []);
 
   // Listen to HTML5 Audio events
@@ -264,7 +356,7 @@ export function PlayerProvider({ children }) {
       setCurrentTime(0);
 
       const loadAndPlayYt = () => {
-        if (ytPlayerRef.current?.loadVideoById) {
+        if (ytPlayerRef.current?.loadVideoById && ytReadyRef.current) {
           ytPlayerRef.current.loadVideoById(targetSong.ytVideoId);
           ytPlayerRef.current.playVideo();
           setIsPlaying(true);
@@ -368,6 +460,7 @@ export function PlayerProvider({ children }) {
   }, [playSong]);
 
   handleNextRef.current = handleNext;
+  playSongRef.current = playSong;
 
   useEffect(() => {
     const audio = audioRef.current;

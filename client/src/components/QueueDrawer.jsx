@@ -17,6 +17,23 @@ import { CSS } from '@dnd-kit/utilities';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { usePlayer, formatTime } from '../context/PlayerContext';
 
+function cleanTitle(str) {
+  if (!str) return str;
+  return str
+    .replace(/\|.*$/i, '')
+    .replace(/\(.*?\)/gi, '')
+    .replace(/\[.*?\]/gi, '')
+    .replace(/\bfull\b.*$/i, '')
+    .replace(/\bofficial\b.*$/i, '')
+    .replace(/\baudio\b.*$/i, '')
+    .replace(/\bvideo\b.*$/i, '')
+    .replace(/\blyrics\b.*$/i, '')
+    .replace(/\bvisualizer\b.*$/i, '')
+    .replace(/\bft\.?\b.*$/i, '')
+    .replace(/\bfeat\.?\b.*$/i, '')
+    .trim();
+}
+
 function QueueRow({ song, globalIndex }) {
   const { playSong, currentIndex } = usePlayer();
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
@@ -34,8 +51,12 @@ function QueueRow({ song, globalIndex }) {
       </button>
       <img src={song.cover} alt={song.title} className="queueCover" />
       <div className="queueMeta" onClick={() => playSong(globalIndex)}>
-        <span className="queueTitle">{song.title}</span>
-        <span className="queueArtist">{song.artist}</span>
+        <span className="queueTitle" title={song.title}>
+          {cleanTitle(song.title)}
+        </span>
+        <span className="queueArtist" title={song.artist}>
+          {song.artist.length > 24 ? song.artist.slice(0, 24).trimEnd() + '…' : song.artist}
+        </span>
       </div>
       {globalIndex === currentIndex && <i className="fas fa-volume-up queueNowIcon"></i>}
       <button
