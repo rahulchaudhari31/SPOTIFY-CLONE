@@ -4412,3 +4412,353 @@ html {
   font-size: 0.88rem;
   padding: 16px 0;
 }
+
+/* ============================================================
+   FINAL MOBILE FIT PASS
+   Keeps the existing icons/markup, but makes the phone layout
+   roomy enough to use full screen.
+   ============================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --mobile-player-height: 116px;
+    --mobile-tab-height: 58px;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100svh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    padding-bottom: calc(
+      var(--mobile-player-height) + 28px + env(safe-area-inset-bottom, 0px)
+    ) !important;
+  }
+
+  .pageMotionWrapper {
+    min-height: calc(100svh - 68px);
+  }
+
+  .proDashboardWrapper {
+    padding: 14px 12px calc(
+      var(--mobile-player-height) + 34px + env(safe-area-inset-bottom, 0px)
+    );
+    gap: 22px;
+  }
+
+  .container,
+  .container.pageContainer {
+    width: calc(100% - 12px);
+    min-height: calc(
+      100svh - 68px - var(--mobile-player-height) - 28px
+    );
+    margin: 6px auto 0;
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .proHeroHeader {
+    margin: 0;
+    padding: 22px 16px;
+  }
+
+  .proStationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .proStationGrid .proStationCard {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .proStationScroll {
+    margin: 0 -12px;
+    padding: 0 12px 12px;
+  }
+
+  .proStationScroll .proStationCard {
+    flex: 0 0 clamp(152px, 44vw, 188px);
+    width: auto;
+  }
+
+  .proTrackListPanel {
+    padding: 14px 10px;
+  }
+
+  .proTrackRow {
+    min-width: 0;
+  }
+
+  .bottom {
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    left: 8px;
+    right: 8px;
+    width: auto;
+    min-height: var(--mobile-player-height);
+    padding: 10px 12px 12px;
+    border-radius: 16px;
+    transform: none;
+  }
+
+  .playerContent {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "song extras"
+      "controls controls";
+    column-gap: 10px;
+    row-gap: 8px;
+    align-items: center;
+  }
+
+  .playerLeft {
+    grid-area: song;
+    justify-content: flex-start;
+    min-width: 0;
+  }
+
+  .playerLeftRow {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .playerCoverContainer,
+  .playerCover {
+    width: 46px;
+    height: 46px;
+  }
+
+  .playerSongMeta {
+    min-width: 0;
+  }
+
+  .playerSongTitle {
+    max-width: clamp(150px, calc(100vw - 190px), 360px);
+    font-size: 0.82rem;
+  }
+
+  .playerSongArtist {
+    max-width: clamp(150px, calc(100vw - 190px), 360px);
+    font-size: 0.68rem;
+  }
+
+  .playerPlayingGif {
+    width: 20px;
+  }
+
+  .playerCenter {
+    grid-area: controls;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .playerCenterInner {
+    max-width: none;
+    gap: 5px;
+  }
+
+  .playbackControls {
+    gap: 18px;
+    min-height: 50px;
+  }
+
+  .controlBtn {
+    font-size: 1.1rem;
+    min-width: 34px;
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .iconToggle {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 0.98rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .playCircle {
+    width: 52px;
+    height: 52px;
+    font-size: 1.05rem;
+  }
+
+  .progressArea {
+    gap: 8px;
+  }
+
+  .progressTrack {
+    height: 26px;
+  }
+
+  .progressRail {
+    height: 6px;
+  }
+
+  .progressTrack:hover .progressRail,
+  .progressTrack.dragging .progressRail {
+    height: 8px;
+  }
+
+  .progressThumb {
+    width: 16px;
+    height: 16px;
+  }
+
+  .timeDisplay {
+    min-width: 34px;
+    font-size: 0.68rem;
+  }
+
+  .playerRight {
+    grid-area: extras;
+    display: flex;
+    justify-content: flex-end;
+    min-width: max-content;
+  }
+
+  .volumeControl {
+    gap: 4px;
+  }
+
+  .volumeSlider {
+    display: none;
+  }
+
+  .queueToggle {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobileBottomNav {
+    bottom: calc(var(--mobile-player-height) + 16px + env(safe-area-inset-bottom, 0px));
+    height: var(--mobile-tab-height);
+  }
+
+  .queueDrawer {
+    padding-bottom: calc(var(--mobile-player-height) + 24px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --mobile-player-height: 118px;
+  }
+
+  .proDashboardWrapper {
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 18px;
+  }
+
+  .proHeroHeader {
+    padding: 20px 14px;
+  }
+
+  .proStationGrid {
+    gap: 8px;
+  }
+
+  .proStationCard {
+    padding: 10px;
+  }
+
+  .bottom {
+    bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    left: 6px;
+    right: 6px;
+    padding: 10px 10px 11px;
+  }
+
+  .playerContent {
+    column-gap: 8px;
+    row-gap: 7px;
+  }
+
+  .playerCoverContainer,
+  .playerCover {
+    width: 44px;
+    height: 44px;
+  }
+
+  .playerSongTitle {
+    max-width: clamp(120px, calc(100vw - 172px), 240px);
+    font-size: 0.8rem;
+  }
+
+  .playerSongArtist {
+    max-width: clamp(120px, calc(100vw - 172px), 240px);
+    font-size: 0.66rem;
+  }
+
+  .playerPlayingGif {
+    display: none;
+  }
+
+  .playbackControls {
+    gap: 15px;
+  }
+
+  .controlBtn {
+    font-size: 1.05rem;
+  }
+
+  .iconToggle,
+  .queueToggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .playCircle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .progressArea {
+    gap: 6px;
+  }
+
+  .timeDisplay {
+    min-width: 31px;
+    font-size: 0.63rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .proStationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .playbackControls {
+    gap: 12px;
+  }
+
+  .iconToggle,
+  .queueToggle {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+
+  .playCircle {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}

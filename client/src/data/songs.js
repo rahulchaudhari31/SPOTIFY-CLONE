@@ -4336,6 +4336,83 @@ export const DEFAULT_SONGS = [
     ytVideoId: "kDgBQFbwX2Y",
     genre: "YouTube",
     isSpecial: false
+  },
+  {
+    id: 509,
+    title: "Shape of You (Stormzy Remix)",
+    artist: "Ed Sheeran ft. Stormzy",
+    cover: "https://img.youtube.com/vi/p-GILTkcV4Y/hqdefault.jpg",
+    file: "",
+    duration: "LIVE",
+    ytVideoId: "p-GILTkcV4Y",
+    genre: "YouTube",
+    isSpecial: false
+  },
+  {
+    id: 510,
+    title: "Valleys",
+    artist: "WOAH",
+    cover: "https://img.youtube.com/vi/CwHay-S-yy8/hqdefault.jpg",
+    file: "",
+    duration: "LIVE",
+    ytVideoId: "CwHay-S-yy8",
+    genre: "YouTube",
+    isSpecial: false
+  },
+  {
+    id: 511,
+    title: "Socha Hai",
+    artist: "Farhan Akhtar",
+    cover: "https://img.youtube.com/vi/eY62RfeviuE/hqdefault.jpg",
+    file: "",
+    duration: "LIVE",
+    ytVideoId: "eY62RfeviuE",
+    genre: "YouTube",
+    isSpecial: false
+  },
+  {
+    id: 512,
+    title: "Sage",
+    artist: "Ritviz",
+    cover: "https://img.youtube.com/vi/_kUrW9SEaJc/hqdefault.jpg",
+    file: "",
+    duration: "LIVE",
+    ytVideoId: "_kUrW9SEaJc",
+    genre: "YouTube",
+    isSpecial: false
+  },
+  {
+    id: 513,
+    title: "Yeh Hansta Hua Carvan Zindagi Ka",
+    artist: "Hemant Kumar & Asha Bhosle",
+    cover: "https://img.youtube.com/vi/eaaouSeuLOk/hqdefault.jpg",
+    file: "",
+    duration: "LIVE",
+    ytVideoId: "eaaouSeuLOk",
+    genre: "YouTube",
+    isSpecial: false
+  },
+  {
+    id: 514,
+    title: "PLAY DATE",
+    artist: "Melanie Martinez",
+    cover: "https://img.youtube.com/vi/Nxs_mpWt2BA/hqdefault.jpg",
+    file: "",
+    duration: "LIVE",
+    ytVideoId: "Nxs_mpWt2BA",
+    genre: "YouTube",
+    isSpecial: false
+  },
+  {
+    id: 515,
+    title: "MEHERBANI",
+    artist: "Jubin Nautiyal & Arko",
+    cover: "https://img.youtube.com/vi/c9T8k3A5Tn4/hqdefault.jpg",
+    file: "",
+    duration: "LIVE",
+    ytVideoId: "c9T8k3A5Tn4",
+    genre: "YouTube",
+    isSpecial: false
   }
 ];
 
