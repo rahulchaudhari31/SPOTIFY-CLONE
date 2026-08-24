@@ -1,9 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
 }
 
 :root,
@@ -1427,12 +1451,15 @@ html {
 
 @media screen and (max-width: 768px) {
   .bottom {
-    padding: 8px 12px;
+    padding: 6px 10px;
+    border-radius: 14px;
+    bottom: 8px;
+    width: 98%;
   }
 
   .playerContent {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 4px;
   }
 
   .playerLeft {
@@ -1452,11 +1479,11 @@ html {
   }
 
   .volumeSlider {
-    width: 80px;
+    width: 70px;
   }
 
   .playbackControls {
-    gap: 14px;
+    gap: 10px;
   }
 }
 
@@ -4145,5 +4172,167 @@ html {
   /* Hide live stream pill on mobile to save space */
   .navQuickStreamItem {
     display: none;
+  }
+}
+
+/* ── Station card footer (artist + like) ── */
+.stationFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.stationLikeBtn {
+  background: none !important;
+  border: none !important;
+  padding: 2px 4px !important;
+  font-size: 0.82rem !important;
+  color: #888 !important;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s !important;
+  box-shadow: none !important;
+}
+.stationLikeBtn.liked {
+  color: #ff6b6b !important;
+}
+.stationLikeBtn:hover {
+  transform: scale(1.2) !important;
+}
+
+/* ── Liked tab highlight ── */
+.catTabBtn[data-id='liked'].catActive {
+  background: rgba(255, 107, 107, 0.15) !important;
+  color: #ff6b6b !important;
+  border-color: rgba(255, 107, 107, 0.3) !important;
+}
+.catTabBtn[data-id='liked'] i {
+  color: #ff6b6b;
+}
+
+/* ── Mobile zoom & tap-friendly overrides ── */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    padding-bottom: 100px;
+  }
+
+  /* Bigger tap targets */
+  button, [role="button"] {
+    min-height: 36px;
+    min-width: 36px;
+  }
+
+  /* Scale up content cards for phone */
+  .proStationCard {
+    width: 160px !important;
+  }
+
+  .proHeroHeader {
+    padding: 22px 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .proHeroTitle {
+    font-size: 1.4rem !important;
+  }
+
+  .proHeroSubtitle {
+    font-size: 0.85rem !important;
+  }
+
+  .proDashboardWrapper {
+    padding: 12px 12px 120px !important;
+    gap: 20px !important;
+  }
+
+  .proSectionTitle {
+    font-size: 1.15rem !important;
+  }
+
+  .categoryTabsList {
+    gap: 6px !important;
+    flex-wrap: wrap;
+  }
+
+  .catTabBtn {
+    padding: 7px 10px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .proTrackRow {
+    padding: 8px 8px !important;
+  }
+
+  .trackThumb {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .trackName {
+    font-size: 0.82rem !important;
+  }
+
+  .trackArtist {
+    font-size: 0.7rem !important;
+  }
+
+  .proMainTwoCol {
+    grid-template-columns: 1fr !important;
+  }
+
+  .proBannerSide {
+    display: none;
+  }
+
+  /* Player bar font sizes */
+  .songTitle {
+    font-size: 0.78rem !important;
+  }
+
+  .songArtist {
+    font-size: 0.68rem !important;
+  }
+
+  .controlBtn {
+    font-size: 0.9rem !important;
+  }
+
+  .playBtn {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .proStationCard {
+    width: 140px !important;
+  }
+
+  .colHeaderGenre,
+  .trackRowGenre,
+  .trackDuration {
+    display: none !important;
+  }
+
+  .trackRowRight {
+    gap: 6px !important;
+  }
+
+  .proPlayPillBtn span {
+    display: none;
+  }
+
+  .proPlayPillBtn {
+    padding: 5px 8px !important;
   }
 }

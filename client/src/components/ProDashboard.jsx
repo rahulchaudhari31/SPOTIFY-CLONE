@@ -172,6 +172,7 @@ export default function ProDashboard() {
               <button
                 key={cat.id}
                 className={`catTabBtn ${activeTab === cat.id ? 'catActive' : ''}`}
+                data-id={cat.id}
                 onClick={() => setActiveTab(cat.id)}
               >
                 <i className={`fas ${cat.icon}`} />
