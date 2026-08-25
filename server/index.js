@@ -499,6 +499,25 @@ const songs = [
 ,
   { id: 595, title: "Track 595", artist: "YouTube Music", cover: "https://img.youtube.com/vi/IAONd2d_PDU/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "IAONd2d_PDU", genre: "YouTube", isSpecial: false },
   { id: 596, title: "Track 596", artist: "YouTube Music", cover: "https://img.youtube.com/vi/Th2Op6uvNXw/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "Th2Op6uvNXw", genre: "YouTube", isSpecial: false }
+,
+  { id: 597, title: "Track 597", artist: "YouTube Music", cover: "https://img.youtube.com/vi/F2m4HPLvj-4/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "F2m4HPLvj-4", genre: "YouTube", isSpecial: false },
+  { id: 598, title: "Track 598", artist: "YouTube Music", cover: "https://img.youtube.com/vi/r8O3URprq1M/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "r8O3URprq1M", genre: "YouTube", isSpecial: false },
+  { id: 599, title: "Track 599", artist: "YouTube Music", cover: "https://img.youtube.com/vi/Qq1pOPUq_fI/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "Qq1pOPUq_fI", genre: "YouTube", isSpecial: false },
+  { id: 600, title: "Track 600", artist: "YouTube Music", cover: "https://img.youtube.com/vi/MApLlF-2gd4/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "MApLlF-2gd4", genre: "YouTube", isSpecial: false },
+  { id: 601, title: "Track 601", artist: "YouTube Music", cover: "https://img.youtube.com/vi/go-j1EpaGVo/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "go-j1EpaGVo", genre: "YouTube", isSpecial: false },
+  { id: 602, title: "Track 602", artist: "YouTube Music", cover: "https://img.youtube.com/vi/BAJ08Fe3VhM/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "BAJ08Fe3VhM", genre: "YouTube", isSpecial: false },
+  { id: 603, title: "Track 603", artist: "YouTube Music", cover: "https://img.youtube.com/vi/H7m36HvAGOM/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "H7m36HvAGOM", genre: "YouTube", isSpecial: false },
+  { id: 604, title: "Track 604", artist: "YouTube Music", cover: "https://img.youtube.com/vi/gPpQNzQP6gE/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "gPpQNzQP6gE", genre: "YouTube", isSpecial: false },
+  { id: 605, title: "Track 605", artist: "YouTube Music", cover: "https://img.youtube.com/vi/29YRI-6low0/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "29YRI-6low0", genre: "YouTube", isSpecial: false },
+  { id: 606, title: "Track 606", artist: "YouTube Music", cover: "https://img.youtube.com/vi/gFjR8aIgEbE/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "gFjR8aIgEbE", genre: "YouTube", isSpecial: false },
+  { id: 607, title: "Track 607", artist: "YouTube Music", cover: "https://img.youtube.com/vi/jh66Pjtqr4k/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "jh66Pjtqr4k", genre: "YouTube", isSpecial: false },
+  { id: 608, title: "Track 608", artist: "YouTube Music", cover: "https://img.youtube.com/vi/mrdRHsIkK_c/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "mrdRHsIkK_c", genre: "YouTube", isSpecial: false },
+  { id: 609, title: "Track 609", artist: "YouTube Music", cover: "https://img.youtube.com/vi/ONLEdLvimTs/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "ONLEdLvimTs", genre: "YouTube", isSpecial: false },
+  { id: 610, title: "Track 610", artist: "YouTube Music", cover: "https://img.youtube.com/vi/l5sgIqzlPXc/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "l5sgIqzlPXc", genre: "YouTube", isSpecial: false },
+  { id: 611, title: "Track 611", artist: "YouTube Music", cover: "https://img.youtube.com/vi/B4-HoKdW6j0/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "B4-HoKdW6j0", genre: "YouTube", isSpecial: false },
+  { id: 612, title: "Track 612", artist: "YouTube Music", cover: "https://img.youtube.com/vi/vJQCAtzSfuo/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "vJQCAtzSfuo", genre: "YouTube", isSpecial: false },
+  { id: 613, title: "Track 613", artist: "YouTube Music", cover: "https://img.youtube.com/vi/5qIJ7tQ2QbM/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "5qIJ7tQ2QbM", genre: "YouTube", isSpecial: false },
+  { id: 614, title: "Track 614", artist: "YouTube Music", cover: "https://img.youtube.com/vi/rRx88tN2LYo/hqdefault.jpg", file: "", duration: "LIVE", ytVideoId: "rRx88tN2LYo", genre: "YouTube", isSpecial: false }
 ];
 
 app.get('/api/songs', (req, res) => {
