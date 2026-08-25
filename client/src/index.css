@@ -7,6 +7,15 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+button, a, input, select, textarea, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 button {
@@ -33,6 +42,31 @@ button:focus-visible {
 
 button:active {
   opacity: 0.82;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+button,
+button:active,
+button:focus,
+button:focus-visible {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+*:active,
+*:focus {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
 }
 
 input[type='range'] {
